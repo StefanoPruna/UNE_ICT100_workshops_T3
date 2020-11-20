@@ -16,7 +16,7 @@ btnTextPico.addEventListener
 ('click', function()
  {
     text = readInputText('pico', true);
-    console.log(text); //in this way the robot talk/write the test in the console
+    console.log("You said: " + text); //in this way the robot talk/write the test in the console
     showTextBalloon('pico', text); //in this way it will show the balloon with the text
     //speak('pico', text); //with speak() function the robot will speak
  }

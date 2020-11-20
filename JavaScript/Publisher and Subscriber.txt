@@ -1,0 +1,36 @@
+message = 
+    {
+    sender: 'Ste',
+    receiver: 'web browser',
+    content: 'Ciao'
+}
+{sender: "Ste", receiver: "web browser", content: "Ciao"}
+message
+{sender: "Ste", receiver: "web browser", content: "Ciao"}
+manager.publish('new_message', message);
+pubsub-manager.js:32 Publishing message (sender -> Ste, receiver -> web browser, content -> Ciao) for topic new_message
+undefined
+sub1 = manager.subscribe('new_message', (message) => {console.log(message.content);});
+pubsub-manager.js:52 Created new subscriber for topic new_message with id 1
+1
+manager.publish('new_message', message);
+pubsub-manager.js:32 Publishing message (sender -> Ste, receiver -> web browser, content -> Ciao) for topic new_message
+pubsub-manager.js:35 Message for topic new_message received by subscriber 1
+VM717:1 Ciao
+undefined
+sub2 = manager.subscribe('new_message', (message) => {console.log(`New message: ${message.content}`);});
+pubsub-manager.js:52 Created new subscriber for topic new_message with id 2
+2
+manager.publish('new_message', message);
+pubsub-manager.js:32 Publishing message (sender -> Ste, receiver -> web browser, content -> Ciao) for topic new_message
+pubsub-manager.js:35 Message for topic new_message received by subscriber 1
+VM717:1 Ciao
+pubsub-manager.js:35 Message for topic new_message received by subscriber 2
+VM969:1 New message: Ciao
+undefined
+manager.unsubscribe(sub1);
+pubsub-manager.js:62 Unsubscribing subscriber with id 1 for topic new_message
+true
+manager.publish('new_message', message);
+pubsub-manager.js:32 Publishing message (sender -> Ste, receiver -> web browser, content -> Ciao) for topic new_message
+pubsub-manager.js:35 Message for topic new_message received by subscriber 2

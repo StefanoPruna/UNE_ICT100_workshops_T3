@@ -1,4 +1,9 @@
 // class pub/sub manager for event-driven approach
+/*myObj =
+{
+    prop1: 'val1',
+    prop2: 'val2',
+}*/
 class PubSubManager {
 
     // constructor creating empty list

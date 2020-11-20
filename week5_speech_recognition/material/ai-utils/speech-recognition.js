@@ -22,3 +22,10 @@ function listen(callback) {
     manager.publish('speech_recognition_event', {event: 'start'});
     speechRecognitionObj.start();
 }
+
+function myCallback(result)
+{
+    console.log(result);
+}
+
+listen(myCallback);
