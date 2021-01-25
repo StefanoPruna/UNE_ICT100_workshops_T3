@@ -88,6 +88,8 @@ function moveTo(xTile, yTile)
     let distance = magnitude(dx, dy)
     forward(distance)
     whenCollision()
+    // backOff();
+    // moveTo(5,5);
 }
 
 function backOff()
@@ -112,8 +114,42 @@ function backOff()
 function whenCollision()
 {
     if (isCollisionDetected())
+    {
         backOff()
+        //the 3 lines below is for letting the robot round and move
+        turnTo(Math.PI * 2)
+        setLeftPower(1)
+        setRightPower(1)
+    }
 }
+
+// Cannot work the rest out from here on
+
+let grid = []; //hold the map
+
+function flood(x, y, d)
+{
+    for (let c = 0; c < 10; c++)
+    {
+        let row = []; //hold the estimated distances from the goal
+        for (let r = 0; r < 10; r++)
+        {
+            if(isCollisionDetected)
+            {
+                row[r] = false;
+            }
+            else
+                row[r] = true;
+        }
+        grid[c] = row;    
+    }  
+}
+
+let goalTileX = Math.floor(getGoalX() / 64)
+let goalTileY = Math.floor(getGoalY() / 64)
+
+flood(10, 10, 0);
+
 
 face(0,1) //face to the right
 face(-1, 0) //face backwards
@@ -125,16 +161,7 @@ moveTo(5, 0) //half way through the x asses of the 0 y asses - first line
 
 backOff()
 
-//example when implementing the isCollisionDetected()
-if (isCollisionDetected())
-{
-    backOff()
-    moveTo(2, 0)
-}else{
-    moveTo(1, 2)
-}
-
-//Call the face(), backOff() and moveTo() will be enough to move the robot, but below are other commands
+//Call the face(), backOff() and moveTo() functions will be enough to move the robot, but below are other commands
 turnTo(Math.PI / 2) //to turn right
 turnTo( - Math.PI /2) //to turn left
 //to go forward
@@ -146,3 +173,14 @@ setRightPower(-1)
 //to stop
 setLeftPower(0)
 setRightPower(0)
+
+// setLightColour("blue")
+// moveTo(5, 0)
+// setLeftPower(0)
+// setRightPower(0)
+// setLightColour("green")
+// moveTo(5, 0)
+// moveTo(0, 0)
+// setLeftPower(0)
+// setRightPower(0)
+// setLightColour("red")
