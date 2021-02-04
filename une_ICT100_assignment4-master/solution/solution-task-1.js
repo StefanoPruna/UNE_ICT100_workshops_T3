@@ -17,3 +17,25 @@ As long as the parser and publisher are correct it is not
 important if the speech-to-text fails to correctly recognise
 the voice command.
 */
+
+// function to read from the input text boxes
+function new_command(robotID, landmarkID, message){
+    let inputTextObj = document.getElementById(`input-text-command`);
+    let text = inputTextObj.value;
+    // if (clearInput == true){
+    //     inputTextObj.value = '';
+    // }
+    return text;
+}
+
+// declaring the variables for the button element
+const btnEnter = document.getElementById('button-text-command');
+
+// adding the event listeners for the buttons
+btnEnter.addEventListener(
+    'click',
+    function(){
+        let text = new_command("Enter", true);
+        console.log(text);
+    }
+);
