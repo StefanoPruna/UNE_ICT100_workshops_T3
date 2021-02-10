@@ -19,23 +19,46 @@ the voice command.
 */
 
 // function to read from the input text boxes
-function new_command(robotID, landmarkID, message){
-    let inputTextObj = document.getElementById(`input-text-command`);
+function readInputText(clearInput){
+    let inputTextObj = document.getElementById("input-text-command");
     let text = inputTextObj.value;
-    // if (clearInput == true){
-    //     inputTextObj.value = '';
-    // }
+    if (clearInput == true){
+        inputTextObj.value = '';
+    }
     return text;
 }
 
+function handleChatMessage(sender, receiver, content)
+{
+    message = 
+    {
+        sender: sender,
+        receiver: receiver,
+        content: message
+    }
+    gameController.publish("new_command", message);
+}
+
 // declaring the variables for the button element
-const btnEnter = document.getElementById('button-text-command');
+const btnEnter = document.getElementById("button-text-command");
 
 // adding the event listeners for the buttons
 btnEnter.addEventListener(
     'click',
     function(){
-        let text = new_command("Enter", true);
+        let text = readInputText('yellow', true);
         console.log(text);
+        handleChatMessage('robot_text', 'yellow', text);
     }
 );
+
+let subChatMessage = gameController.subscribe('new_command', (message) =>
+{
+    let sender = message.sender;
+    let bot = message.receiver;
+    let text = message.content;
+});
+
+// let yellow = gameController.subscribe("new_command", text);
+// let green = gameController.subscribe("new_command", (text) => {console.log(`New message: ${text.content}`)});
+// gameController.publish(new_command, text);
