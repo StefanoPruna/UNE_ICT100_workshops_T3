@@ -95,4 +95,3 @@ let subChatMessage = manager.subscribe('new_chat_message', (message) =>
       text = `You wrote: ${text}`;*/
     speak(bot, text);
 })
-
