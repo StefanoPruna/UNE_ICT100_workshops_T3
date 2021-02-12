@@ -97,3 +97,21 @@ console.log(myArr.reduce((a, b) => a+b,0))
 
 console.log(myArr.reduce((a, b) => a*b,2))
 //reduce does what command there is after, in this case multiply/product of all the numbers in the array starting with the number after the comma
+
+//
+
+function doSomething(something)
+{
+  something();
+}
+doSomething(() => {console.log("Hello")});
+//the doSomething function accepts another function as parameter and invoking; the argument something() is a callback function.
+//we are trying to run a console.log command as a callback function of doSomething(), however console.log is expecting an argument that we don't provide.
+//for this reason, we create another function, something(), that doesn't take any argument, which is the argument for doSomething() that console.log is expecting
+
+//alternative way to do the above function, in this example, console.log function is the argument
+function doSomething()
+{
+  console.log("Hello")
+}
+doSomething()
