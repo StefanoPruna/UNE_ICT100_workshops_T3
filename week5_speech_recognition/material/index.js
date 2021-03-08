@@ -1,6 +1,6 @@
 // function to read from the input text boxes
 function readInputText(botName, clearInput){
-    let inputTextObj = document.getElementById(`input-text-${botName}`);
+    let inputTextObj = document.getElementById('input-text-${botName}');
     let text = inputTextObj.value;
     if (clearInput == true){
         inputTextObj.value = '';
@@ -29,7 +29,7 @@ btnTextPico.addEventListener(
     function(){
         let text = readInputText('pico', 'You said: ' + true);
         //showTextBalloon('pico', text);
-        handleChatMessage('user_text', 'pico', 'You wrote: ' + text);
+        handleChatMessage('user_text', 'pico', "You wrote: " + text);
         //speak('pico', text);
     }
 );
@@ -87,7 +87,7 @@ let subChatMessage = manager.subscribe('new_chat_message', (message) =>
     let sender = message.sender;
     let bot = message.receiver;
     let text = message.content;
-    /*if (sender === 'user_speech') //This is the way the teacher did
+    /*if (sender == 'user_speech') //This is the way the teacher did
     {
         text = `You said: ${text}`;
     }

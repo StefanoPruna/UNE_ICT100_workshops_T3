@@ -1,3 +1,4 @@
+//FOR THIS, USE GO LIVE BUTTON FROM INDEX.HTML
 //QUIZ 5
 const manager = new PubSubManager();
 
@@ -194,3 +195,7 @@ for(let y=0;y<10;y++)
 //it creates the 10 button with the for loop;
 //then with the even onclick we log in the console when we click
 //the button
+
+//QUIZ 10
+
+

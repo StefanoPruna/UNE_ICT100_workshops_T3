@@ -1,3 +1,4 @@
+//FOR THIS CODE USE PLAYCODE EDITOR
 let obj = 
 {
   "hello": (name) =>
@@ -115,3 +116,47 @@ function doSomething()
   console.log("Hello")
 }
 doSomething()
+
+//
+
+//IN A PROMISE OBJECT, IF THE PROIMISE IS FULFILLED OR REJECTED, WE USE THEN
+const promise1 = new Promise((resolve, reject) => {
+  resolve('Success!');
+});
+
+promise1.then((value) => {
+  console.log(value);
+  // expected output: "Success!"
+});
+
+p.then(onFulfilled[, onRejected]);
+
+p.then(value => {
+  // fulfillment
+}, reason => {
+  // rejection
+});
+//we don't return a value with promise, but resolve or reject,
+
+//
+
+//we will access the try block and log "i try", then we will generate the error in catch, but the error is before the console.log, so we don't log it, then
+//it will move to finally block and run the bad function;
+//if we put the console.log before the throw error in the catch block, we will see that log too
+function bad()
+{
+    throw(Error("This is a bad bug"));
+}
+try{
+    console.log("I try");
+    bad();
+}
+catch (err)
+{
+    throw(err);
+    console.log("Whoops");
+}
+finally
+{
+    console.log("At least I tried");
+}
